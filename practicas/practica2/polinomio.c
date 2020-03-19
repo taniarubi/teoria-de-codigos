@@ -81,6 +81,9 @@ Polinomio suma_polinomios(Polinomio polinomio1, Polinomio polinomio2) {
         resultante.grado = polinomio1.grado;
     else 
         resultante.grado = polinomio2.grado;
+
+    for(int i = 0; i <= resultante.grado; i++)
+        resultante.coeficiente[i] = 0;
     
     for(int i = 0; i <= polinomio1.grado; i++) 
         resultante.coeficiente[i] += polinomio1.coeficiente[i];
@@ -102,6 +105,9 @@ Polinomio suma_polinomios(Polinomio polinomio1, Polinomio polinomio2) {
 Polinomio multiplica_entero(Polinomio polinomio, int n) {
     Polinomio resultante;
     resultante.grado = polinomio.grado;
+
+    for(int i = 0; i <= resultante.grado; i++)
+        resultante.coeficiente[i] = 0;
 
     for(int i = 0; i <= polinomio.grado; i++)
         resultante.coeficiente[i] = n * polinomio.coeficiente[i];
@@ -135,7 +141,10 @@ Polinomio resta_polinomios(Polinomio polinomio1, Polinomio polinomio2) {
  */
 Polinomio multiplica_polinomios(Polinomio polinomio1, Polinomio polinomio2) {
     Polinomio resultante;
-    resultante.grado = (polinomio1.grado + polinomio2.grado) - 1;
+    resultante.grado = polinomio1.grado + polinomio2.grado;
+
+    for(int i = 0; i <= resultante.grado; i++)
+        resultante.coeficiente[i] = 0; 
     
     for(int i = 0; i <= polinomio1.grado; i++) {
         for(int j = 0; j <= polinomio2.grado; j++) {
@@ -148,21 +157,75 @@ Polinomio multiplica_polinomios(Polinomio polinomio1, Polinomio polinomio2) {
 } 
 
 /**
- * Dados dos polinomios, regresa el resultado de dividir el primer polinomio
+ * Dados dos polinomios, regresa el cociente de dividir el primer polinomio
  * entre el segundo.
  * @param polinomio1 el polinomio correspondiente al dividendo.
  * @param polinomio2 el polinomio correspondiente al divisor.
- * @return el resultado de dividir el primer polinomio entre el segundo.
- 
+ * @return el cociente de dividir el primer polinomio entre el segundo.
+ */
 Polinomio divide_polinomios(Polinomio polinomio1, Polinomio polinomio2) {
     Polinomio resultante;
-    dividendo = polinomio1.grado;
-    divisor = polinomio2.grado;
+    Polinomio residuo;
+    Polinomio aux;
 
-    while(divisor <= denominador) {
-        resultante.grado = polinomio1.grado - polinomio2.grado;
-        resultante.coeficiente[0] = polinomio1.coeficiente[1] - po
+    if(polinomio2.grado == 0)
+        printf("No se puede dividir entre cero.");
+
+    if(polinomio1.grado < polinomio2.grado)
+        return polinomio1;
+
+    resultante.grado = polinomio1.grado - polinomio2.grado;
+    for(int i = 0; i <= resultante.grado; i++)
+        resultante.coeficiente[i] = 0;
+
+    residuo.grado = polinomio1.grado;
+    for(int i = 0; i <= residuo.grado; i++)
+        residuo.coeficiente[i] = polinomio1.coeficiente[i];
+
+    for(int i = resultante.grado; i >= 0; i--) {
+        resultante.coeficiente[i] = 
+            residuo.coeficiente[polinomio2.grado + i] / 
+            polinomio2.coeficiente[polinomio2.grado];
+        aux = multiplica_polinomios(resultante, polinomio2);
+        residuo = resta_polinomios(polinomio1, aux);
     }
+
+    return resultante;
 }
 
-*/
+/*!
+ * Dados dos polinomios, regresa el residuo tras dividir el primer polinomio 
+ * entre el segundo.
+ * @param polinomio1 el polinomio correspondiente al dividendo.
+ * @param polinomio2 el polinomio correspondiente al divisor.
+ * @return el residuo tras dividir el primer polinomio entre el segundo.
+ */
+Polinomio modulo_polinomios(Polinomio polinomio1, Polinomio polinomio2) {
+    Polinomio resultante;
+    Polinomio residuo;
+    Polinomio aux;
+
+    if(polinomio2.grado == 0)
+        printf("No se puede dividir entre cero.");
+
+    if(polinomio1.grado < polinomio2.grado)
+        return polinomio1;
+
+    resultante.grado = polinomio1.grado - polinomio2.grado;
+    for(int i = 0; i <= resultante.grado; i++)
+        resultante.coeficiente[i] = 0;
+
+    residuo.grado = polinomio1.grado;
+    for(int i = 0; i <= residuo.grado; i++)
+        residuo.coeficiente[i] = polinomio1.coeficiente[i];
+
+    for(int i = resultante.grado; i >= 0; i--) {
+        resultante.coeficiente[i] = 
+            residuo.coeficiente[polinomio2.grado + i] / 
+            polinomio2.coeficiente[polinomio2.grado];
+        aux = multiplica_polinomios(resultante, polinomio2);
+        residuo = resta_polinomios(polinomio1, aux);
+    }
+
+    return residuo;
+}

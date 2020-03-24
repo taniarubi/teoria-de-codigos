@@ -26,16 +26,17 @@ void main() {
 
         getchar(); 
         if(paridad % 2) {
-            if(error > 1) {
+            if(error > 0) {
                 printf("Se detectaron dos o más errores.");
                 return; 
             } else {
-                error = 1;
+                error += 1;
                 errorx = i;
             } 
         } 
     }
 
+    error = 0;
     /* Analizamos por columnas. */
     for(j = 0; j <= ancho; j++) {
         paridad = 0;
@@ -47,11 +48,11 @@ void main() {
         }
 
         if(paridad % 2) {
-            if(error > 1) {
+            if(error > 0) {
                 printf("Se detectaron dos o más errores.");
                 return; 
             } else {
-                error = 1;
+                error += 1;
                 errory = j;
             }
         }
@@ -78,7 +79,7 @@ void main() {
         }
 
         putchar('\n');
-     }
+        }
     } else {
         /* Imprimimos. */
         for(i = 0; i < alto; i++) {

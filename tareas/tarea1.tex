@@ -1,0 +1,244 @@
+\documentclass[letterpaper,10pt]{article}
+
+% Soporte para los acentos.
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}    
+% Idioma español.
+\usepackage[spanish,mexico, es-tabla]{babel}
+% Soporte de símbolos adicionales (matemáticas)
+\usepackage{multirow}
+\usepackage{amsmath}		
+\usepackage{amssymb}		
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\usepackage{enumerate}
+\usepackage{ragged2e}
+\usepackage{multicol}
+% Modificamos los márgenes del documento.
+\usepackage[lmargin=2cm,rmargin=2cm,top=2cm,bottom=2cm]{geometry}
+
+\title{Teoría de Códigos \\ Tarea 1}
+\author{Rubí Rojas Tania Michelle}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+    % Ejercicio 1.
+    \item Construye el campo $\mathbb{F}_{16}$. También da sus tablas de suma y 
+    multiplicación.
+    
+    \textsc{Solución:} En el anillo $\mathbb{Z}_{2}$ existe el polinomio 
+    irreducible $f(x) = x^{4}+x+1$. Tenemos que 
+    \begin{equation}
+        \mathbb{F}_{16} = \mathbb{Z}_{2}[x]/(x^{4}+x+1)
+    \end{equation}
+    
+    donde los elementos de $\mathbb{F}_{16}$ son:
+    \begin{align*}
+        \mathbb{F}_{16} 
+        &= \{ax^{3} + bx^{2} + cx + d \; : \; a,b,c,d \in \mathbb{Z}_{2}\} \\
+        &= \{0, 1, x, x + 1, x^2, x^2 + 1, x^2 + x, x^2 + x + 1, x^3, 
+             x^3 + 1, x^3 + x, x^3 + x + 1, x^3 + x^2, \\ 
+        &\; \; \; \; \; \; \; x^3 + x^2 + x, x^3 + x^2 + 1, x^3 + x^2 + x + 1\}
+    \end{align*}
+    
+    Etiquetamos cada uno de los elementos de $\mathbb{F}_{16}$ de la siguiente 
+    manera:
+    \begin{multicols}{3}
+        \begin{itemize}
+            \item $g_{0}(x) = 0$
+            \item $g_{1}(x) = 1$
+            \item $g_{2}(x) = x$
+            \item $g_{3}(x) = x+1$
+            \item $g_{4}(x) = x^{2}$
+            \item $g_{5}(x) = x^{2}+1$
+            \item $g_{6}(x) = x^{2}+x$
+            \item $g_{7}(x) = x^{2}+x+1$
+            \item $g_{8}(x) = x^{3}$
+            \item $g_{9}(x) = x^{3}+1$
+            \item $g_{10}(x) = x^{3}+x$
+            \item $g_{11}(x) = x^{3}+x+1$
+            \item $g_{12}(x) = x^{3}+x^{2}$
+            \item $g_{13}(x) = x^{3}+x^{2}+x$
+            \item $g_{14}(x) = x^{3}+x^{2}+1$
+            \item $g_{15}(x) = x^{3}+x^{2}+x+1$
+        \end{itemize}
+    \end{multicols}
+
+    
+    Su respectiva tabla de suma es:
+    \begin{table}[h]
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+    \hline
+    $+$ & $g_{0}$ & $g_{1}$ & $g_{2}$ & $g_{3}$ & $g_{4}$ & $g_{5}$ & $g_{6}$ &
+    $g_{7}$ & $g_{8}$ & $g_{9}$ & $g_{10}$ & $g_{11}$ & $g_{12}$ & $g_{13}$ &
+    $g_{14}$ & $g_{15}$ \\ \hline
+    $g_{0}$ & $g_{0}$ & $g_{1}$ & $g_{2}$ & $g_{3}$ & $g_{4}$ & $g_{5}$ & 
+    $g_{6}$ & $g_{7}$ & $g_{8}$ & $g_{9}$ & $g_{10}$ & $g_{11}$ & $g_{12}$ & 
+    $g_{13}$ & $g_{14}$ & $g_{15}$  \\ \hline
+    $g_{1}$ & $g_{1}$ & $g_{0}$ & $g_{3}$ & $g_{2}$ & $g_{5}$ & $g_{4}$ &  
+    $g_{7}$ & $g_{6}$ & $g_{9}$ & $g_{8}$ & $g_{11}$ & $g_{10}$ & $g_{14}$ & 
+    $g_{15}$ & $g_{12}$ & $g_{13}$\\ \hline
+    $g_{2}$ & $g_{2}$ & $g_{3}$ & $g_{0}$ & $g_{1}$ & $g_{6}$ & $g_{7}$ &
+    $g_{4}$ & $g_{5}$ & $g_{10}$ & $g_{11}$ & $g_{8}$ & $g_{9}$ & $g_{13}$ &
+    $g_{12}$ & $g_{15}$ & $g_{14}$ \\ \hline
+    $g_{3}$ & $g_{3}$ & $g_{2}$ & $g_{1}$ & $g_{0}$ & $g_{7}$ & $g_{6}$ &
+    $g_{5}$ & $g_{4}$ & $g_{11}$ & $g_{10}$ & $g_{9}$ & $g_{8}$ & $g_{15}$ &
+    $g_{14}$ & $g_{13}$ & $g_{12}$ \\ \hline
+    $g_{4}$ & $g_{4}$ & $g_{5}$ & $g_{6}$ & $g_{7}$ & $g_{0}$ & $g_{1}$ &
+    $g_{2}$ & $g_{3}$ & $g_{12}$ & $g_{14}$ & $g_{13}$ & $g_{15}$ & $g_{8}$ & 
+    $g_{10}$ & $g_{9}$ & $g_{11}$ \\ \hline
+    $g_{5}$ & $g_{5}$ & $g_{4}$ & $g_{7}$ & $g_{6}$ & $g_{1}$ & $g_{0}$ & 
+    $g_{3}$ & $g_{2}$ & $g_{14}$ & $g_{12}$ & $g_{15}$ & $g_{13}$ & $g_{9}$ &
+    $g_{11}$ & $g_{8}$ & $g_{10}$ \\ \hline
+    $g_{6}$ & $g_{6}$ & $g_{7}$ & $g_{4}$ & $g_{5}$ & $g_{2}$ & $g_{3}$ & 
+    $g_{0}$ & $g_{1}$ & $g_{13}$ & $g_{15}$ & $g_{12}$ & $g_{14}$ & $g_{10}$ & 
+    $g_{8}$ & $g_{11}$ & $g_{9}$ \\ \hline
+    $g_{7}$ & $g_{7}$ & $g_{6}$ & $g_{5}$ & $g_{4}$ & $g_{3}$ & $g_{2}$ &  
+    $g_{1}$ & $g_{0}$ & $g_{15}$ & $g_{13}$ & $g_{14}$ & $g_{12}$ & $g_{11}$ &
+    $g_{9}$ & $g_{10}$ & $g_{8}$ \\ \hline
+    $g_{8}$ & $g_{8}$ & $g_{9}$ & $g_{10}$ & $g_{11}$ & $g_{12}$ & $g_{14}$ &  
+    $g_{13}$ & $g_{15}$ & $g_{0}$ & $g_{1}$ & $g_{2}$ & $g_{3}$ & $g_{4}$ &
+    $g_{6}$ & $g_{5}$ & $g_{7}$ \\ \hline
+    $g_{9}$ & $g_{9}$ & $g_{8}$ & $g_{11}$ & $g_{10}$ & $g_{14}$ & $g_{12}$ &  
+    $g_{15}$ & $g_{13}$ & $g_{1}$ & $g_{0}$ & $g_{3}$ & $g_{2}$ & $g_{5}$ & 
+    $g_{7}$ & $g_{4}$ & $g_{6}$ \\ \hline
+    $g_{10}$ & $g_{10}$ & $g_{11}$ & $g_{8}$ & $g_{9}$ & $g_{13}$ & $g_{15}$ &  
+    $g_{12}$ & $g_{14}$ & $g_{2}$ & $g_{3}$ & $g_{0}$ & $g_{1}$ & $g_{6}$ & 
+    $g_{4}$ & $g_{7}$ & $g_{5}$ \\ \hline
+    $g_{11}$ & $g_{11}$ & $g_{10}$ & $g_{9}$ & $g_{8}$ & $g_{15}$ & $g_{13}$ &  
+    $g_{14}$ & $g_{12}$ & $g_{3}$ & $g_{2}$ & $g_{1}$ & $g_{0}$ & $g_{7}$ &
+    $g_{5}$ & $g_{6}$ & $g_{4}$ \\ \hline
+    $g_{12}$ & $g_{12}$ & $g_{14}$ & $g_{13}$ & $g_{15}$ & $g_{8}$ & $g_{9}$ &  
+    $g_{10}$ & $g_{11}$ & $g_{4}$ & $g_{5}$ & $g_{6}$ & $g_{7}$ & $g_{0}$ & 
+    $g_{2}$ & $g_{1}$ & $g_{3}$ \\ \hline
+    $g_{13}$ & $g_{13}$ & $g_{15}$ & $g_{12}$ & $g_{14}$ & $g_{10}$ & $g_{11}$&
+    $g_{8}$ & $g_{9}$ & $g_{6}$ & $g_{7}$ & $g_{4}$ & $g_{5}$ & $g_{2}$ &
+    $g_{0}$ & $g_{3}$ & $g_{1}$ \\ \hline
+    $g_{14}$ & $g_{14}$ & $g_{12}$ & $g_{15}$ & $g_{13}$ & $g_{9}$ & $g_{8}$ &  
+    $g_{11}$ & $g_{10}$ & $g_{5}$ & $g_{4}$ & $g_{7}$ & $g_{6}$ & $g_{1}$ &  
+    $g_{3}$ & $g_{0}$ & $g_{2}$ \\ \hline
+    $g_{15}$ & $g_{15}$ & $g_{13}$ & $g_{14}$ & $g_{12}$ & $g_{11}$ & $g_{10}$&
+    $g_{9}$ & $g_{8}$ & $g_{7}$ & $g_{6}$ & $g_{5}$ & $g_{4}$ & $g_{3}$ & 
+    $g_{1}$ & $g_{2}$ & $g_{0}$\\ \hline
+    \end{tabular}
+    \end{center}
+    \end{table}
+    
+    \newpage
+    mientras que su tabla de multiplicación es:
+    \begin{table}[h]
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+    \hline
+    $\cdot$ & $g_{0}$ & $g_{1}$ & $g_{2}$ & $g_{3}$ & $g_{4}$ &
+    $g_{5}$ & $g_{6}$ & $g_{7}$ & $g_{8}$ & $g_{9}$ & 
+    $g_{10}$ & $g_{11}$ & $g_{12}$ & $g_{13}$ & $g_{14}$ & 
+    $g_{15}$ \\ \hline
+    $g_{0}$ & $g_{0}$ & $g_{0}$ & $g_{0}$ & $g_{0}$ & 
+    $g_{0}$ & $g_{0}$ & $g_{0}$ & $g_{0}$ & $g_{0}$ & $g_{0}$  
+    & $g_{0}$ & $g_{0}$ & $g_{0}$ & $g_{0}$ & $g_{0}$ & 
+    $g_{0}$ \\ \hline
+    $g_{1}$ & $g_{0}$ & $g_{1}$ & $g_{2}$ & $g_{3}$ & 
+    $g_{4}$ & $g_{5}$ & $g_{6}$ & $g_{7}$ & $g_{8}$ & 
+    $g_{9}$ & $g_{10}$ & $g_{11}$ & $g_{12}$ & $g_{13}$ & 
+    $g_{14}$ & $g_{15}$ \\ \hline
+    $g_{2}$ & $g_{0}$ & $g_{2}$ & $g_{4}$ & $g_{6}$ & $g_{8}$ & $g_{10}$ & 
+    $g_{12}$ & $g_{13}$ & $g_{3}$ & $g_{1}$ & $g_{7}$ & $g_{5}$ & $g_{11}$ & 
+    $g_{15}$& $g_{9}$ & $g_{14}$ \\ \hline
+    $g_{3}$ & $g_{0}$ & $g_{3}$ & $g_{6}$ & $g_{5}$ & $g_{12}$ & $g_{15}$ & 
+    $g_{10}$ & $g_{9}$ & $g_{11}$ & $g_{8}$ & $g_{14}$ & $g_{13}$ & $g_{7}$ & 
+    $g_{1}$ & $g_{4}$ & $g_{2}$ \\ \hline
+    $g_{4}$ & $g_{0}$ & $g_{4}$ & $g_{8}$ & $g_{12}$ & $g_{3}$ & $g_{7}$ & 
+    $g_{11}$ & $g_{15}$ & $g_{6}$ & $g_{2}$ & $g_{13}$ & $g_{10}$ & $g_{5}$ & 
+    $g_{14}$ & $g_{1}$ & $g_{9}$ \\ \hline
+    $g_{5}$ & $g_{0}$ & $g_{5}$ & $g_{10}$ & $g_{15}$ & $g_{7}$ & $g_{2}$ & 
+    $g_{14}$ & $g_{8}$ & $g_{13}$ & $g_{11}$ & $g_{4}$ & $g_{1}$ & $g_{9}$ & 
+    $g_{3}$ & $g_{12}$ & $g_{6}$ \\\hline
+    $g_{6}$ & $g_{0}$ & $g_{6}$ & $g_{12}$ & $g_{10}$ & $g_{11}$ & $g_{14}$ & 
+    $g_{7}$ & $g_{1}$ & $g_{5}$ & $g_{3}$ & $g_{9}$ & $g_{15}$ & $g_{13}$ & 
+    $g_{2}$ & $g_{8}$ & $g_{4}$ \\\hline
+    $g_{7}$ & $g_{0}$ & $g_{7}$ & $g_{13}$ & $g_{9}$ & $g_{15}$ & $g_{8}$ & 
+    $g_{1}$ & $g_{6}$ & $g_{14}$ & $g_{10}$ & $g_{3}$ & $g_{4}$ & $g_{2}$ & 
+    $g_{12}$ & $g_{5}$ & $g_{11}$ \\\hline
+    $g_{8}$ & $g_{0}$ & $g_{8}$ & $g_{3}$ & $g_{11}$ & $g_{6}$ & $g_{13}$ & 
+    $g_{5}$ & $g_{14}$ & $g_{12}$ & $g_{4}$ & $g_{15}$ & $g_{7}$ & $g_{10}$ & 
+    $g_{9}$ & $g_{2}$ & $g_{1}$ \\ \hline
+    $g_{9}$ & $g_{0}$ & $g_{9}$ & $g_{1}$ & $g_{8}$ & $g_{2}$ & $g_{11}$ & 
+    $g_{3}$ & $g_{10}$ & $g_{4}$ & $g_{14}$ & $g_{5}$ & $g_{12}$ & $g_{6}$ & 
+    $g_{7}$ & $g_{15}$ & $g_{13}$ \\ \hline
+    $g_{10}$ & $g_{0}$ & $g_{10}$ & $g_{7}$ & $g_{14}$ & $g_{13}$ & $g_{4}$ & 
+    $g_{9}$ & $g_{3}$ & $g_{15}$ & $g_{5}$ & $g_{8}$ & $g_{2}$ & $g_{1}$ & 
+    $g_{6}$ & $g_{11}$ & $g_{12}$ \\ \hline
+    $g_{11}$ & $g_{0}$ & $g_{11}$ & $g_{5}$ & $g_{13}$ & $g_{10}$ & $g_{1}$ & 
+    $g_{15}$ & $g_{4}$ & $g_{7}$ & $g_{12}$ & $g_{2}$ & $g_{9}$ & $g_{14}$ &
+    $g_{8}$ & $g_{6}$ & $g_{3}$ \\ \hline
+    $g_{12}$ & $g_{0}$ & $g_{12}$ & $g_{11}$ & $g_{7}$ & $g_{5}$ & $g_{9}$ & 
+    $g_{13}$ & $g_{2}$ & $g_{10}$ & $g_{6}$ & $g_{1}$ & $g_{14}$ & $g_{15}$ & 
+    $g_{4}$ & $g_{3}$ & $g_{8}$ \\ \hline
+    $g_{13}$ & $g_{0}$ & $g_{13}$ & $g_{15}$ & $g_{1}$ & $g_{14}$ & $g_{3}$ & 
+    $g_{2}$ & $g_{12}$ & $g_{9}$ & $g_{7}$ & $g_{6}$ & $g_{8}$ & $g_{4}$ & 
+    $g_{11}$ & $g_{10}$ & $g_{5}$ \\ \hline
+    $g_{14}$ & $g_{0}$ & $g_{14}$ & $g_{9}$ & $g_{4}$ & $g_{1}$ & $g_{12}$ & 
+    $g_{8}$ & $g_{5}$ & $g_{2}$ & $g_{15}$ & $g_{11}$ & $g_{6}$ & $g_{3}$ & 
+    $g_{10}$ & $g_{13}$ & $g_{7}$  \\ \hline
+    $g_{15}$ & $g_{0}$ & $g_{15}$ & $g_{14}$ & $g_{2}$ & $g_{9}$ & $g_{6}$ & 
+    $g_{4}$ & $g_{11}$ & $g_{1}$ & $g_{13}$ & $g_{12}$ & $g_{3}$ & $g_{8}$ & 
+    $g_{5}$ & $g_{7}$ & $g_{10}$  \\ \hline
+    \end{tabular}
+    \end{center}
+    \end{table}
+    
+    % Ejercicio 2.
+    \item Construye una matriz generadora para el código $RS(4,11)$. 
+    
+    % Ejercicio 3.
+    \item Supón que recibes la palabra $y = (10, 1, 2, 2, 2, 10, 7, 2, 9, 3, 7)$
+    $\in \mathbb{F}^{11}_{11}$. Decodifica la palabra usando el algoritmo de
+    Gao, sabiendo que la palabra es del código $RS(4,11)$.
+    
+    % Ejercicio 4.
+    \item Construye una base para $\mathcal{L}_{k}$ de tal manera que la matriz
+    generadora del código $RS(k, q)$ sea de la forma 
+    \begin{equation}
+    \begin{bmatrix}
+    I_{k} & P\\
+    \end{bmatrix}
+    \end{equation}
+    
+    donde $I_{k}$ es la matriz identidad $k \times k$ y $P$ es una matriz 
+    $k \times (q-k)$. 
+    
+    % Ejercicio 5.
+    \item Demuestra que el número de subespacios vectoriales de 
+    $\mathbb{F}^{n}_{q}$ de dimensión $i$ es: 
+    \begin{equation}
+        \mathcal{G}(n, i) = \frac{(q^{n}-1)(q^{n}-q)\cdots(q^{n}-q^{i-1})}
+        {(q^{i}-1)(q^{i}-q)\cdots(q^{i}-q^{i-1})}
+    \end{equation}
+    
+    para $i = 1,.., n$.
+    
+    % Ejercicio 6.
+    \item Demuestra que $RS(k, q)^{\top}_{q} = RS(q-k, q)$.
+    
+    % Ejercicio 7.
+    \item Demuestra que si $C$ es un código $MDS$, entonces $C^{\top}$ también
+    es $MDS$. 
+    
+    % Ejercicio 8.
+    \item Resuelve los siguientes ejercicios
+    \begin{enumerate}
+        \item Encuentra la matriz generadora $G$ del código Simplex $S(3,2)$.
+        \item Supongamos que un mensaje es enviado bajo el código $H(3,2)$.
+        Verifica si el mensaje $r = 1010001$ es correcto. 
+    \end{enumerate}
+
+
+\end{enumerate}
+
+\end{document}

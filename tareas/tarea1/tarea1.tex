@@ -234,10 +234,72 @@
     \item Resuelve los siguientes ejercicios
     \begin{enumerate}
         \item Encuentra la matriz generadora $G$ del código Simplex $S(3,2)$.
+        
+        \textsc{Solución:} Sabemos que el código $S(3,2)$ tiene 
+        \begin{align*}
+            \frac{q^{k}-1}{q-1} 
+            &= \frac{2^{3}-1}{2-1} \\
+            &= \frac{8-1}{1} \\
+            &= 7
+        \end{align*}
+        
+        subespacios de dimensión $1$. Por lo tanto, 
+
+        \begin{equation*}
+        G = 
+        \begin{pmatrix}
+        1 & 0 & 0 & 1 & 1 & 0 & 1\\
+        0 & 1 & 0 & 1 & 0 & 1 & 1\\
+        0 & 0 & 1 & 0 & 1 & 1 & 1
+        \end{pmatrix}
+        \end{equation*}
+        
         \item Supongamos que un mensaje es enviado bajo el código $H(3,2)$.
         Verifica si el mensaje $r = 1010001$ es correcto. 
-    \end{enumerate}
+        
+        \textsc{Solución:} Sabemos que $H(3,2) = [7, 4, 3]_{2}$ y que una
+        matriz de verificación para $H(3,2)$ es cualquier matriz generadora
+        para $S(3,2)$. Así, la matriz obtenida en el inciso anterior es una
+        matriz de verificación para nuestro código $H(3,2)$.
+        
+        El mensaje $r$ se puede ver como un vector 
+        \begin{equation*}
+            x = (1, 0, 1, 0, 0, 0, 1) \in \mathbb{F}^{7}_{2}
+        \end{equation*}
 
+        Ahora, calculamos el síndrome de $x$.
+        \begin{align*}
+            S(y) 
+            &= G \cdot x \\
+            &= \begin{pmatrix}
+               1 & 0 & 0 & 1 & 1 & 0 & 1\\
+               0 & 1 & 0 & 1 & 0 & 1 & 1\\
+               0 & 0 & 1 & 0 & 1 & 1 & 1
+               \end{pmatrix}
+               \begin{pmatrix}
+               1 \\
+               0 \\
+               1 \\
+               0 \\ 
+               0 \\
+               0 \\
+               1
+               \end{pmatrix} \\
+            &= \begin{pmatrix}
+               0 \\
+               1 \\
+               0 
+               \end{pmatrix} \\
+        \end{align*}
+        
+        Como $S(y) = (0, 1, 0)^{t} \neq 0$ entonces podemos concluir que hubo
+        errores de transmisión. Notemos que $(0, 1, 0)^{t}$ corresponde a la 
+        segunda columna de $G$, por lo que sabemos que la segunda coordenada es
+        incorrecta. Por lo tanto, la palabra envíada fue
+        \begin{equation*}
+            r' = (1, 1, 1, 0, 0, 0, 1)
+        \end{equation*}
+    \end{enumerate}
 
 \end{enumerate}
 

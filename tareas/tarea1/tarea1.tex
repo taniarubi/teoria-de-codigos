@@ -15,10 +15,11 @@
 \usepackage{enumerate}
 \usepackage{ragged2e}
 \usepackage{multicol}
+\setcounter{MaxMatrixCols}{20}
 % Modificamos los márgenes del documento.
 \usepackage[lmargin=2cm,rmargin=2cm,top=2cm,bottom=2cm]{geometry}
 
-\title{Teoría de Códigos \\ Tarea 1}
+\title{Facultad de Ciencias, UNAM \\ Teoría de Códigos \\ Tarea 1}
 \author{Rubí Rojas Tania Michelle}
 \date{\today}
 
@@ -196,6 +197,17 @@
     % Ejercicio 2.
     \item Construye una matriz generadora para el código $RS(4,11)$. 
     
+    \textsc{Solución:} Una matriz generadora para $RS(4, 11)$ es 
+    \begin{equation*}
+        G = 
+        \begin{pmatrix}
+        1 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1\\
+        0 & 1 & 0 & 0 & 1 & 0 & 0 & 1 & 1 & 0 & 1\\
+        0 & 0 & 1 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 1\\
+        0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 1
+        \end{pmatrix}
+    \end{equation*}
+    
     % Ejercicio 3.
     \item Supón que recibes la palabra $y = (10, 1, 2, 2, 2, 10, 7, 2, 9, 3, 7)$
     $\in \mathbb{F}^{11}_{11}$. Decodifica la palabra usando el algoritmo de
@@ -225,11 +237,18 @@
     
     % Ejercicio 6.
     \item Demuestra que $RS(k, q)^{\top}_{q} = RS(q-k, q)$.
+    \begin{proof}
+        
+    \end{proof}
+
     
     % Ejercicio 7.
     \item Demuestra que si $C$ es un código $MDS$, entonces $C^{\top}$ también
     es $MDS$. 
-    
+    \begin{proof}
+        Supongamos que $C$ es un código $MDS$.
+    \end{proof}
+
     % Ejercicio 8.
     \item Resuelve los siguientes ejercicios
     \begin{enumerate}
@@ -270,7 +289,7 @@
         Ahora, calculamos el síndrome de $x$.
         \begin{align*}
             S(y) 
-            &= G \cdot x \\
+            &= G \cdot x^{t} \\
             &= \begin{pmatrix}
                1 & 0 & 0 & 1 & 1 & 0 & 1\\
                0 & 1 & 0 & 1 & 0 & 1 & 1\\
@@ -300,7 +319,5 @@
             r' = (1, 1, 1, 0, 0, 0, 1)
         \end{equation*}
     \end{enumerate}
-
 \end{enumerate}
-
 \end{document}

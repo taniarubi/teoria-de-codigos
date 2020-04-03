@@ -32,7 +32,7 @@ Polinomio lee_polinomio() {
         polinomio.coeficiente[i] = coef;
     }
 
-    while(polinomio.coeficiente[polinomio.grado] == 0)
+    while((polinomio.coeficiente[polinomio.grado] == 0) && (polinomio.grado))
         polinomio.grado--;
     return polinomio;
 }
@@ -43,6 +43,11 @@ Polinomio lee_polinomio() {
  * @return el polinomio en la terminal.
  */ 
 void imprime_polinomio(Polinomio polinomio) {
+    if((polinomio.grado == 0) && (polinomio.coeficiente[0] == 0)) {
+        printf("0x^{0}");
+        return;
+    }
+
     for(int i = 0; i <= polinomio.grado; i++) {
         if(polinomio.coeficiente[i] == 0)
             printf("");
@@ -112,7 +117,7 @@ Polinomio multiplica_entero(Polinomio polinomio, int n) {
     for(int i = 0; i <= polinomio.grado; i++)
         resultante.coeficiente[i] = n * polinomio.coeficiente[i];
 
-    while(resultante.coeficiente[resultante.grado] == 0)
+    while((resultante.coeficiente[resultante.grado] == 0) && (polinomio.grado))
        resultante.grado--;
     return resultante;
 }
@@ -141,6 +146,14 @@ Polinomio resta_polinomios(Polinomio polinomio1, Polinomio polinomio2) {
  */
 Polinomio multiplica_polinomios(Polinomio polinomio1, Polinomio polinomio2) {
     Polinomio resultante;
+
+    if(((polinomio1.grado == 0) && (polinomio1.coeficiente[0] == 0)) || 
+       ((polinomio2.grado == 0) && (polinomio2.coeficiente[0] == 0))) {
+        resultante.grado = 0;
+        resultante.coeficiente[0] = 0;
+        return resultante;
+    }
+
     resultante.grado = polinomio1.grado + polinomio2.grado;
 
     for(int i = 0; i <= resultante.grado; i++)
@@ -167,12 +180,19 @@ Polinomio divide_polinomios(Polinomio polinomio1, Polinomio polinomio2) {
     Polinomio resultante;
     Polinomio residuo;
     Polinomio aux;
+    resultante.grado = 0;
+    resultante.coeficiente[0] = 0;
 
-    if(polinomio2.grado == 0)
+    if((polinomio2.grado == 0) && (polinomio2.coeficiente[0] == 0)) {
         printf("No se puede dividir entre cero.");
+        return resultante;
+    }
 
-    if(polinomio1.grado < polinomio2.grado)
-        return polinomio1;
+    if((polinomio1.grado < polinomio2.grado) ||
+       ((polinomio1.grado == polinomio2.grado) && 
+        (polinomio1.coeficiente[polinomio1.grado] < 
+         polinomio2.coeficiente[polinomio2.grado])))
+            return polinomio1;
 
     resultante.grado = polinomio1.grado - polinomio2.grado;
     for(int i = 0; i <= resultante.grado; i++)
@@ -204,12 +224,19 @@ Polinomio modulo_polinomios(Polinomio polinomio1, Polinomio polinomio2) {
     Polinomio resultante;
     Polinomio residuo;
     Polinomio aux;
+    resultante.grado = 0;
+    resultante.coeficiente[0] = 0;
 
-    if(polinomio2.grado == 0)
+    if((polinomio2.grado == 0) && (polinomio2.coeficiente[0] == 0)) {
         printf("No se puede dividir entre cero.");
+        return resultante;
+    }
 
-    if(polinomio1.grado < polinomio2.grado)
-        return polinomio1;
+    if((polinomio1.grado < polinomio2.grado) ||
+       ((polinomio1.grado == polinomio2.grado) && 
+        (polinomio1.coeficiente[polinomio1.grado] < 
+         polinomio2.coeficiente[polinomio2.grado])))
+            return polinomio1;
 
     resultante.grado = polinomio1.grado - polinomio2.grado;
     for(int i = 0; i <= resultante.grado; i++)

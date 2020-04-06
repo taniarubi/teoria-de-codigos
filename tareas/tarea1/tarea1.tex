@@ -246,6 +246,42 @@
     
     para $i = 1,.., n$.
     
+    \begin{proof}
+        Sabemos que un subespacio de dimensión $k$ se especifica dando $k$
+        vectores linealmente independientes $\{v_{1}, v_{2}, ..., v_{k}\}
+        \in V = \mathbb{F}^{n}_{q}$. El vector $v_{1}$ puede ser elegido como 
+        cualquier vector distinto de cero en $V$, por lo que hay $q^{n}-1$ 
+        opciones para $v_{1}$. Dado $v_{1}$, $v_{2}$ se puede elegir como 
+        cualquier vector que no se encuentre en el subespacio generado por 
+        $v_{1}$. Como este subespacio tiene $q$ elementos, entonces hay 
+        $q^{n} - q$ opciones para $v_{2}$. Siguiendo de esta manera, tenemos 
+        que dados $v_{1}, v_{2},..., v_{i}$ con $i < k$, entonces hay 
+        $q^{n}-q^{i}$ opciones para $v_{i+1}$. Así, el número de conjuntos de 
+        $k$ vectores linealmente independientes en $V$ es
+        \begin{equation}
+            (q^{n}-1)(q^{n}-q)\cdots(q^{n}-q^{k-1})
+        \end{equation}
+        
+        Como hay muchos conjuntos $k$ linealmente independientes que
+        generan el mismo subespacio, entonces debemos dividir la expresión
+        anterior entre el número de $k$ conjuntos que generan el mismo
+        subespacio (i.e. el número de bases para un subespacio de dimensión 
+        $k$).
+        
+        Así, aplicando la expresión $(4)$ al caso especial en que $n = k$, 
+        tenemos que cada subespacio de dimensión $k$ de $V$ tiene
+        \begin{equation}
+            (q^{k}-1)(q^{k}-q)\cdots(q^{k}-q^{k-1})
+        \end{equation}
+        
+        bases. Por lo tanto, el número de subespacios de dimensión $k$ de $V$ 
+        es 
+        \begin{center}
+            $G(n, k) = \frac{(q^{n}-1)(q^{n}-q)\cdots(q^{n}-q^{k-1})}
+                            {(q^{k}-1)(q^{k}-q)\cdots(q^{k}-q^ {k-1})}$
+        \end{center}
+    \end{proof}
+
     % Ejercicio 6.
     \item Demuestra que $RS(k, q)^{\top}_{q} = RS(q-k, q)$.
     \begin{proof}

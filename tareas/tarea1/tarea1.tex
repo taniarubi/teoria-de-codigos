@@ -236,6 +236,11 @@
     donde $I_{k}$ es la matriz identidad $k \times k$ y $P$ es una matriz 
     $k \times (q-k)$. 
     
+    \textsc{Solución:} Sabemos que $\mathcal{L}_{k} = \{f(x) \in 
+    \mathbb{F}_{q}[x] \; : \; deg(f) < k\}$. La base $\beta = \{\}$ para 
+$\mathcal{L}_{k}$ hace que la matriz generadora para 
+    $RS(k,q)$ sea de la forma
+    
     % Ejercicio 5.
     \item Demuestra que el número de subespacios vectoriales de 
     $\mathbb{F}^{n}_{q}$ de dimensión $i$ es: 
@@ -286,21 +291,25 @@
     \item Demuestra que $RS(k, q)^{\top}_{q} = RS(q-k, q)$.
     \begin{proof}
         Notemos que tanto $RS(k,q)$ como $RS(q-k,q)$ tienen dimensiones 
-        complementarias, así que es suficiente mostrar que son ortogonales.
-        
-        Tenemos que el código $RS(k,q)$ es generado por $X^{i}$, con $i < k$; y
-        el código $RS(q-k, q)$ es generado por $X^{i}$, con $j < q-k$. El 
-        producto punto correspondiente a las palabras de código es 
-        $S = \sum_{u}u^{i+j}$. Sea $m = i + j$. Notemos que $m \leq q -2$.
-        Hay algunos $0 \not = c \in \mathbb{F}_{q}$ tales que $c^{m} \not = 1$,
-        ya que el polinomio $X^{m}-1$ de grado $m$ debería de tener $q-1 > m$
-        raíces, lo cual es imposibles. 
-        
-        Como $c^{m}S = S$, entonces $cu$
+        complementarias, por lo que es suficiente mostrar que son ortogonales.
+        Tenemos que el código $RS(k,q)$ es generado por el polinomio $X^{i}$,
+        con $i < k$; y el código $RS(q-k, q)$ es generado por el 
+        polinomio $X^{j}$, con $j < q-k$. El producto punto de los 
+        correspondientes códigos es $\sum_{v} v^{i+j}$ (teniéndo en cuenta que
+        $i + j \leq q -2$). Sabemos que existen algunos elementos  
+        $c \not = 0 \in \mathbb{F}_{q}$ tales que $c^{i+j} \not = 1$, pues de 
+        lo contrario, el polinomio $X^{i+j}-1$ de grado $i+j$ debería de tener
+        $q-1 > i+j$ raíces, lo cual es imposible.
+        Además, tenemos que $c^{i+j} \left(\sum_{v} v^{i+j} \right) = 
+        \sum_{v} v^{i+j}$, ya que $cv$ se \textit{desplaza} a través de todos
+        los elementos distintos de cero que pertenecen a $\mathbb{F}_{q}$ 
+        cuando $v$ lo hace. De aquí se sigue que $(c^{i+j}-1) \left(\sum_{v} 
+        v^{i+j} \right) = 0$, y como $c^{i+j} \not = 1$, entonces podemos
+        concluir que $\sum_{v} v^{i+j} = 0$ (que es lo que queríamos mostrar).
+        Por lo tanto, $RS(k, q)^{\top}_{q} = RS(q-k, q)$.
          
     \end{proof}
-
-    
+        
     % Ejercicio 7.
     \item Demuestra que si $C$ es un código $MDS$, entonces $C^{\top}$ también
     es $MDS$. 

@@ -192,7 +192,7 @@ Polinomio divide_polinomios(Polinomio polinomio1, Polinomio polinomio2) {
        ((polinomio1.grado == polinomio2.grado) && 
         (polinomio1.coeficiente[polinomio1.grado] < 
          polinomio2.coeficiente[polinomio2.grado])))
-            return polinomio1;
+            return resultante;
 
     resultante.grado = polinomio1.grado - polinomio2.grado;
     for(int i = 0; i <= resultante.grado; i++)
@@ -236,7 +236,7 @@ Polinomio modulo_polinomios(Polinomio polinomio1, Polinomio polinomio2) {
        ((polinomio1.grado == polinomio2.grado) && 
         (polinomio1.coeficiente[polinomio1.grado] < 
          polinomio2.coeficiente[polinomio2.grado])))
-            return polinomio1;
+            return resultante;
 
     resultante.grado = polinomio1.grado - polinomio2.grado;
     for(int i = 0; i <= resultante.grado; i++)

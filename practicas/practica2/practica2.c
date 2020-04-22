@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "polinomio.c"
+#include "polinomio.h"
 
 void main() {
     Polinomio polinomio;

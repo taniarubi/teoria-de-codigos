@@ -213,16 +213,6 @@
     \item Supón que recibes la palabra $y = (10, 1, 2, 2, 2, 10, 7, 2, 9, 3, 7)$
     $\in \mathbb{F}^{11}_{11}$. Decodifica la palabra usando el algoritmo de
     Gao, sabiendo que la palabra es del código $RS(4,11)$.
-    
-    \textsc{Solución:} Aplicamos el algoritmo de Gao
-    \begin{enumerate}
-        \item[i)] Sea $p_{0}(x) = x^{11}-x$ y $p_{1}(x) = 10 + x + 2x^{2} 
-        + 2x^{3} + 2x^{4} + 10x^{5} + 7x^{6} + 2x^{7} + 9x^{8} + 3x^{9} 
-        + 7x^{10}$
-        \item[ii)] Aplicamos el algoritmo extendido de euclides a $p_{0}$ y a 
-        $p_{1}$ deteniéndonos cuando el grado del residuo $p_{m}(x)$ es menor
-        que $\frac{q+k}{2} = \frac{11+4}{2} = 7$.
-    \end{enumerate}
 
     % Ejercicio 4.
     \item Construye una base para $\mathcal{L}_{k}$ de tal manera que la matriz
@@ -237,9 +227,44 @@
     $k \times (q-k)$. 
     
     \textsc{Solución:} Sabemos que $\mathcal{L}_{k} = \{f(x) \in 
-    \mathbb{F}_{q}[x] \; : \; deg(f) < k\}$. La base $\beta = \{\}$ para 
-$\mathcal{L}_{k}$ hace que la matriz generadora para 
-    $RS(k,q)$ sea de la forma
+    \mathbb{F}_{q}[x] \; : \; deg(f) < k\}$, es decir, $\mathcal{L}_{k}$ son 
+    todos los polinomios de grado menor que $k$ con coeficientes en 
+    $\mathbb{F}_{q} = \{0, 1, \alpha, \alpha^{2}, ..., \alpha^{q-2}\}$, donde 
+    éste es un campo finito de $q$ elementos. 
+
+    Sea $\beta = \{1, \alpha x, \alpha_{2} x^{2}, ..., \alpha_{k-1} x^{k-1}\}$,
+    con $\alpha_{i} \in \mathbb{F}_{q} - \{0\}$ e $i \in \{1, 2, ..., q - 2\}$.
+    Entonces tenemos que $\beta$ es una base para $\mathcal{L}_{k}$ con una 
+    matriz generadora 
+    \begin{equation*}
+        G = 
+        \begin{bmatrix}
+        I_{k} & P\\
+        \end{bmatrix}
+    \end{equation*}
+
+    Recordemos que un mensaje $m = (m_1, m_2, ..., m_k)$ se codifica haciendo 
+    $m \cdot G$. Entonces 
+    \begin{equation*}
+        G = 
+        \begin{bmatrix}
+        I_{k} & P\\
+        \end{bmatrix}
+        =  
+        \begin{bmatrix}
+            1 & 0 & \cdots & 0 & & 1 & 0 & 0 & \cdots & 0 \\ 
+            0 & 1 & \cdots & 0 & & 0 & \alpha x & 0 & \cdots & 0 \\
+            \vdots & \cdots & \ddots & \vdots & & \vdots & \vdots & 
+            \alpha_{2} x^{2} & \vdots & 0 \\ 
+            0 & 0 & \cdots & 1 & & 0 & 0 & 0 & \cdots & \alpha_{k-1} x^{k-1}  
+        \end{bmatrix}
+    \end{equation*}
+
+    y $m \cdot G = (m_1, m_2, ..., m_k, m_1, m_2 \alpha x, m_3 \alpha_2 x^2, ..., 
+    m_k \alpha_{k-1} x^{k-1})$. 
+
+    Así, $G$ tiene dimensión $k$ y cada mensaje codificado tiene 
+    longitud $q$. Por lo tanto, $G$ genera a $RS(k, q)$. 
     
     % Ejercicio 5.
     \item Demuestra que el número de subespacios vectoriales de 

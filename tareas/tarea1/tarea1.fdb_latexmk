@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1597113716 "/home/taniarubi/Documents/fciencias/teoria-de-codigos/tareas/tarea1/tarea1.tex" "/home/taniarubi/Documents/fciencias/teoria-de-codigos/tareas/tarea1/tarea1.pdf" "tarea1" 1597113717
-  "/home/taniarubi/Documents/fciencias/teoria-de-codigos/tareas/tarea1/tarea1.aux" 1597113717 77 8717268bb58e11c59d407708e2dd0423 ""
-  "/home/taniarubi/Documents/fciencias/teoria-de-codigos/tareas/tarea1/tarea1.tex" 1597113715 20132 b2485dfa19c45268cb51290d0c35dfa6 ""
+["pdflatex"] 1597113792 "/home/taniarubi/Documents/fciencias/teoria-de-codigos/tareas/tarea1/tarea1.tex" "/home/taniarubi/Documents/fciencias/teoria-de-codigos/tareas/tarea1/tarea1.pdf" "tarea1" 1597113793
+  "/home/taniarubi/Documents/fciencias/teoria-de-codigos/tareas/tarea1/tarea1.aux" 1597113793 77 8717268bb58e11c59d407708e2dd0423 ""
+  "/home/taniarubi/Documents/fciencias/teoria-de-codigos/tareas/tarea1/tarea1.tex" 1597113792 20149 1cedf6a6550723105eeb243c379865e4 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1591545468 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1591545468 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/eccc1095.tfm" 1591545468 3072 1b1df026a15993ee98d265b49cf8d5f2 ""
@@ -79,11 +79,11 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1591545468 33301 a3134070eacafb10b1f371612ce2650d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1596058196 4855604 a2b69e422d881628e3d9a5db2035053f ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1596058141 2514049 9804ab43306f3ac2d187e6d449d8ef6b ""
-  "tarea1.aux" 1597113717 77 8717268bb58e11c59d407708e2dd0423 "pdflatex"
-  "tarea1.tex" 1597113715 20132 b2485dfa19c45268cb51290d0c35dfa6 ""
+  "tarea1.aux" 1597113793 77 8717268bb58e11c59d407708e2dd0423 "pdflatex"
+  "tarea1.tex" 1597113792 20149 1cedf6a6550723105eeb243c379865e4 ""
   (generated)
   "/home/taniarubi/Documents/fciencias/teoria-de-codigos/tareas/tarea1/tarea1.pdf"
-  "/home/taniarubi/Documents/fciencias/teoria-de-codigos/tareas/tarea1/tarea1.log"
   "tarea1.pdf"
-  "tarea1.aux"
   "tarea1.log"
+  "tarea1.aux"
+  "/home/taniarubi/Documents/fciencias/teoria-de-codigos/tareas/tarea1/tarea1.log"

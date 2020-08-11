@@ -5,7 +5,9 @@
 #### Docentes
 
 Profesor: Erik Martín Hess Frieling
+
 Ayudante: Edgar Iván Zamora Ramos
+
 Ayudante Lab: Jesús Jara Arellano
 
 #### Entorno

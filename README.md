@@ -14,6 +14,7 @@ Ayudante Lab: Jesús Jara Arellano
 
 * `SO: Manjaro Linux 20.0.3`
 * `GCC: gcc version 10.1.0`
+* `pdfTex: Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux)`
 
 
 #### Contenido
